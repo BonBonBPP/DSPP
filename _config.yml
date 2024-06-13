@@ -2,4 +2,5 @@ title: Data Science Project
 #logo: /assets/img/headshot_circle.png
 description: this is a test
 show_downloads: true
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
+theme: Hacker
