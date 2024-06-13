@@ -1,5 +1,6 @@
-# DSPP
-Data Science Professional Project
+# 1. Logistic Regression on Customer satisfaction
+This project revolves around try to understand what correlation and predictors can be used for a public dataset taken from Kaggle containing airline customer satastifaction information.
+
 ## Test
 
 ### Headings Test
