@@ -13,4 +13,4 @@ Data Science Professional Project
 
 # Image from repo example
 
-[Testing image folder](/assets/images/bus-road-against-sky.jpg)
+[Testing image folder](/asset/images/bus-road-against-sky.jpg)
