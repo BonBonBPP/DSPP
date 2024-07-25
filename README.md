@@ -209,7 +209,7 @@ Using feature importance to see Coefficients measured here influence from some v
 
 ![Confusion Matrix of Results](/asset/images/FeatureImportance.png)
 
-##Interpretation of the ROC Curve
+## Interpretation of the ROC Curve
 The ROC curve and the AUC value of 0.84 suggest that the model has strong performance in distinguishing between the two classes. It is effective at identifying true positives while maintaining a relatively low rate of false positives. This implies that the model is reliable for the given classification task.
 
 ![Confusion Matrix of Results](/asset/images/ROC.png)
