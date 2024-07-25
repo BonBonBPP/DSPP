@@ -36,15 +36,92 @@ test_df['satisfaction'] = test_df['satisfaction'].map({'satisfied': 1, 'neutral 
 #Search for number null values
 train_df.isnull().sum()
 ```
+```
+Unnamed: 0                             0
+id                                     0
+Gender                                 0
+Customer Type                          0
+Age                                    0
+Type of Travel                         0
+Class                                  0
+Flight Distance                        0
+Inflight wifi service                  0
+Departure/Arrival time convenient      0
+Ease of Online booking                 0
+Gate location                          0
+Food and drink                         0
+Online boarding                        0
+Seat comfort                           0
+Inflight entertainment                 0
+On-board service                       0
+Leg room service                       0
+Baggage handling                       0
+Checkin service                        0
+Inflight service                       0
+Cleanliness                            0
+Departure Delay in Minutes             0
+Arrival Delay in Minutes             310
+satisfaction                           0
+dtype: int64
+```
+
+```
+test_df.isnull().sum()
+```
+```
+Unnamed: 0                            0
+id                                    0
+Gender                                0
+Customer Type                         0
+Age                                   0
+Type of Travel                        0
+Class                                 0
+Flight Distance                       0
+Inflight wifi service                 0
+Departure/Arrival time convenient     0
+Ease of Online booking                0
+Gate location                         0
+Food and drink                        0
+Online boarding                       0
+Seat comfort                          0
+Inflight entertainment                0
+On-board service                      0
+Leg room service                      0
+Baggage handling                      0
+Checkin service                       0
+Inflight service                      0
+Cleanliness                           0
+Departure Delay in Minutes            0
+Arrival Delay in Minutes             83
+satisfaction                          0
+dtype: int64
+```
 
 
-# URL Image Link
-![Image URL](https://i0.wp.com/statisticsbyjim.com/wp-content/uploads/2020/07/TimeSeriesTrade.png?fit=576%2C384&ssl=1)
+### Normalising Data
+Using StandardScaler, the data was normalised to create better performance in the model, because the ‘Delay in minutes’ columns had a wider range, normalising the data in these columns allows the data the to train faster because the data is easier to work as the scale has been reduced to closer to 0. This improves the models performance as the data is on a similar scale.
+```
+#Replace null values using imputation for mean values of the relevant fields.
+train_df['Arrival Delay in Minutes'].fillna(train_df['Arrival Delay in Minutes'].mean(), inplace=True)
+train_df['Departure Delay in Minutes'].fillna(train_df['Departure Delay in Minutes'].mean(), inplace=True)
+test_df['Arrival Delay in Minutes'].fillna(test_df['Arrival Delay in Minutes'].mean(), inplace=True)
+test_df['Departure Delay in Minutes'].fillna(test_df['Departure Delay in Minutes'].mean(), inplace=True)
 
-# URL Example
+# Initialise the scaler
+scaler = StandardScaler()
 
-[URL Github](https://github.com/)
+#Normalise the numerical features in the training data set 
+train_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']] = scaler.fit_transform(train_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']])
+# Normalise the numerical features in the testing data set
+test_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']] = scaler.transform(test_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']])
+```
 
-# Image from repo example
+### Data suitablity
+Checking the suitabilty of the data in terms of the balance of what we are predicting in logistic regression is important as imbalanced classes in dependent variables can lead to several issues, including the risk of overfitting. However, overfitting itself is not the most immediate risk; rather, the primary concerns are:
 
-![Testing image folder](/asset/images/bus-road-against-sky.jpg)
+Bias towards the majority class: The model may become biased towards predicting the majority class, leading to poor performance on the minority class. This means the model might predict "satisfied" for most cases, even when the true label is "dissatisfied."
+
+Poor generalization: The model may not generalize well to new data, particularly for the minority class. This happens because the model doesn't learn enough about the minority class to make accurate predictions.
+![Dependent variable distribution (training data)](/asset/images/SatisfiedDistri.png)
+![Dependent variable distribution (test data)](/asset/images/SatisfiedDistri2.png)
+
