@@ -124,7 +124,9 @@ Bias towards the majority class: The model may become biased towards predicting 
 
 Poor generalisation: The model may not generalize well to new data, particularly for the minority class. This happens because the model doesn't learn enough about the minority class to make accurate predictions.
 The training data is measured on the left and the test data is measured on the right.
+
 ![Dependent variable distribution (training data)](/asset/images/SatisfiedDistri.png) ![Dependent variable distribution (test data)](/asset/images/SatisfiedDistri2.png)
+
 the fairly equal spread suggests this data will be suitable to create a model against and there should be a lower risk of bias or poor generalisation.
 
 ### Understanding spread of data in independent variables
@@ -196,4 +198,4 @@ Service ratings like online boarding, inflight service, check-in service, and cl
 
 
 
-![Dependent variable distribution (training data)](/asset/images/FieldGraphicals.png) 
+![Independent variable distribution](/asset/images/FIeldGraphicals.png)
