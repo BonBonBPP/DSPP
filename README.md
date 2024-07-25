@@ -197,5 +197,24 @@ Customer type and class may be strong predictors due to the clear majority in ce
 Service ratings like online boarding, inflight service, check-in service, and cleanliness might be significant predictors given their higher satisfaction levels.
 
 
-
 ![Independent variable distribution](/asset/images/FIeldGraphicals.png)
+
+
+### Confusion Matrix of Results
+
+![Confusion Matrix of Results](/asset/images/ConfusionMatrix.png)
+
+## Feature Importance
+Using feature importance to see Coefficients measured here influence from some variables, suggesting that the odds of satisfaction increase with each unit increase in things like Online boarding, inflight entertainment etc. and conversely the odds of dissatisfaction increase with things like Departure/arrival time, as these increases the satisfaction will drop
+
+![Confusion Matrix of Results](/asset/images/FeatureImportance.png)
+
+##Interpretation of the ROC Curve
+The ROC curve and the AUC value of 0.84 suggest that the model has strong performance in distinguishing between the two classes. It is effective at identifying true positives while maintaining a relatively low rate of false positives. This implies that the model is reliable for the given classification task.
+
+![Confusion Matrix of Results](/asset/images/ROC.png)
+
+## Conclusion
+The overall analysis when related to the research question highlight that variables such as seat comfort, online booking, inflight entertainment etc. were the biggest contributors to satisfaction and should be used to improve the experience for customers, when measuring this data, it can be reliably used within this model to assess whether a customer is likely to be a satisfied customer, but continuous monitoring and updating of the model are necessary to adapt to changing customer preferences and ensure sustained performance. The models performance could further be improved in the future by recording/creating new features to capture underlying patterns better.
+I also think there could be confounding variables that haven't been recorded within this data but it cannot be confirmed by this dataset alone. More research is required by myself to utilise things like 
+using SHAP (SHapley Additive exPlanations) values or LIME (Local Interpretable Model-agnostic Explanations) to understand and validate the influence of each feature on the predictions.
