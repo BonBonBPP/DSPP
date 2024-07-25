@@ -115,13 +115,85 @@ train_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']] = scaler.fi
 # Normalise the numerical features in the testing data set
 test_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']] = scaler.transform(test_df[['Arrival Delay in Minutes', 'Departure Delay in Minutes']])
 ```
+## Exploratory Data Analysis
 
 ### Data suitablity
 Checking the suitabilty of the data in terms of the balance of what we are predicting in logistic regression is important as imbalanced classes in dependent variables can lead to several issues, including the risk of overfitting. However, overfitting itself is not the most immediate risk; rather, the primary concerns are:
 
 Bias towards the majority class: The model may become biased towards predicting the majority class, leading to poor performance on the minority class. This means the model might predict "satisfied" for most cases, even when the true label is "dissatisfied."
 
-Poor generalization: The model may not generalize well to new data, particularly for the minority class. This happens because the model doesn't learn enough about the minority class to make accurate predictions.
-![Dependent variable distribution (training data)](/asset/images/SatisfiedDistri.png)
-![Dependent variable distribution (test data)](/asset/images/SatisfiedDistri2.png)
+Poor generalisation: The model may not generalize well to new data, particularly for the minority class. This happens because the model doesn't learn enough about the minority class to make accurate predictions.
+The training data is measured on the left and the test data is measured on the right.
+![Dependent variable distribution (training data)](/asset/images/SatisfiedDistri.png) ![Dependent variable distribution (test data)](/asset/images/SatisfiedDistri2.png)
+the fairly equal spread suggests this data will be suitable to create a model against and there should be a lower risk of bias or poor generalisation.
 
+### Understanding spread of data in independent variables
+Viewing the spread of the independent variables helps us to understand the likely potential predictators in our model.
+
+Gender:
+Almost equal distribution between male (49%) and female (51%).
+
+Customer Type:
+Majority are loyal customers (82%) compared to disloyal customers (18%).
+
+Type of Travel:
+Higher proportion of business travel (69%) than personal travel (31%).
+
+Class:
+Predominantly business class (48%), followed by economy class (45%), and a small portion in economy plus (7%).
+
+Inflight Wifi Service:
+Ratings are fairly distributed with higher counts in mid-ranges (2, 3, 4) and fewer in extremes (1, 5).
+
+Departure/Arrival Time Convenient:
+Similar distribution across ratings with slightly fewer extremes.
+
+Ease of Online Booking:
+More ratings in the mid-range (2, 3, 4) with fewer extreme ratings.
+
+Gate Location:
+Again, higher distribution in the mid-ranges (2, 3, 4).
+
+Food and Drink:
+Mid-range ratings are more common, with fewer extremes.
+
+Online Boarding:
+Significant portion of high ratings (4, 5), indicating satisfaction with this service.
+
+Seat Comfort:
+Mixed distribution with no clear concentration in any specific rating.
+
+Inflight Entertainment:
+More mid-range ratings with fewer extremes.
+
+On-Board Service:
+Evenly spread across mid-range ratings, with fewer extremes.
+
+Leg Room Service:
+Similar mid-range distribution with fewer extremes.
+
+Baggage Handling:
+Higher satisfaction (rating 5) is noticeable compared to other ratings.
+
+Check-In Service:
+Predominantly higher ratings (4, 5), indicating satisfaction.
+
+Inflight Service:
+Higher ratings (4, 5) suggest good service quality.
+
+Cleanliness:
+More concentrated in the higher ratings (4, 5), indicating cleanliness satisfaction.
+
+### Data Distribution:
+
+The data is fairly balanced in terms of gender, with noticeable skewness towards loyal customers and business travel.
+Service ratings generally show a higher frequency of mid-range values, indicating moderate satisfaction levels.
+
+#### Potential Predictors:
+
+Customer type and class may be strong predictors due to the clear majority in certain categories.
+Service ratings like online boarding, inflight service, check-in service, and cleanliness might be significant predictors given their higher satisfaction levels.
+
+
+
+![Dependent variable distribution (training data)](/asset/images/FieldGraphicals.png) 
