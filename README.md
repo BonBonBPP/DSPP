@@ -9,6 +9,9 @@ The data has been pulled from a public source
 https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction
 into a CSV file format, I have chosen to use Python because of the number of rows of data exceeding 100,000+, whereas excel can handle this it’s already beginning to exceed a point where excel will handle it comfortably and I will notice overhead issues.
 
+## Tool Usage
+Python was used to build this model, using a Jupyter notebook to document findings, graphicals and explain methods. In my project, I utilised several Python libraries to perform data analysis, visualisation, and model evaluation. I used `pandas` allowing me to efficiently load, clean, and preprocess the dataset. For splitting the data into training and testing sets, I employed the `train_test_split` function from the `sklearn.model_selection` module, which is essential for ensuring the model's performance can be properly validated. To create visualisations, I used `seaborn`, for drawing informative statistical graphics. Additionally, I used `matplotlib.pyplot` for visualisations.
+
 ## Data Cleansing 
 Little was required in terms of cleaning the data, mapping the dependent variables to boolean values (so changing Satisfied to a 1 and neutral or dissatisfied to a 0) was done to allow a logistic regression model to be performed on this dataset.
 Columns such as Arrival/Depature delay are normalised, using StandardScaler, the data was normalised to create better performance in the model, because the ‘Delay in minutes’ columns had a wider range, normalising the data in these columns allows the data the to train faster because the data is easier to work as the scale has been reduced to closer to 0. This improves the models performance as the data is on a similar scale.
@@ -129,6 +132,7 @@ The training data is measured on the left and the test data is measured on the r
 
 the fairly equal spread suggests this data will be suitable to create a model against and there should be a lower risk of bias or poor generalisation.
 
+
 ### Understanding spread of data in independent variables
 Viewing the spread of the independent variables helps us to understand the likely potential predictators in our model.
 
@@ -213,6 +217,12 @@ Using feature importance to see Coefficients measured here influence from some v
 The ROC curve and the AUC value of 0.84 suggest that the model has strong performance in distinguishing between the two classes. It is effective at identifying true positives while maintaining a relatively low rate of false positives. This implies that the model is reliable for the given classification task.
 
 ![Confusion Matrix of Results](/asset/images/ROC.png)
+
+## Model Performance
+The models accuracy was measured at 77% and the Precision, Recall and F1 score were measured at 74%. With a measure of ROC AUC 84%, indicating the model has a good discrimination capability between the measured variable of satisfied and dissatisfied customers. Finally the confusion matrix measurement showed actual figures of a balanced performance between the classes.
+
+## Ethical Considerations
+This dataset is public and any personal identifiable information was redacted or not recorded to prevent any privacy concerns, adhering to GDPR and data protection laws. The application of the model is designed to enhance customer experience in theory by seeing what factors improve satisfaction and are not designed to be intrusive.
 
 ## Conclusion
 The overall analysis when related to the research question highlight that variables such as seat comfort, online booking, inflight entertainment etc. were the biggest contributors to satisfaction and should be used to improve the experience for customers, when measuring this data, it can be reliably used within this model to assess whether a customer is likely to be a satisfied customer, but continuous monitoring and updating of the model are necessary to adapt to changing customer preferences and ensure sustained performance. The models performance could further be improved in the future by recording/creating new features to capture underlying patterns better.
