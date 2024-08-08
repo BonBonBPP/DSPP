@@ -224,6 +224,47 @@ The models accuracy was measured at 77% and the Precision, Recall and F1 score w
 ## Ethical Considerations
 This dataset is public and any personal identifiable information was redacted or not recorded to prevent any privacy concerns, adhering to GDPR and data protection laws. The application of the model is designed to enhance customer experience in theory by seeing what factors improve satisfaction and are not designed to be intrusive.
 
+## Challenges with Features
+
+#### Challenges in Processing Data
+
+1. **Handling Missing Values:**
+ - **Challenge:** The `Arrival Delay in Minutes` column had missing values that could skew the results.
+ - **Solution:** Imputed missing values with the median, which is robust against outliers compared to mean imputation.
+
+2. **Data Volume:**
+ - **Challenge:** The dataset contained over 100,000 rows and 25 columns, leading to high memory usage and longer computation times.
+ - **Solution:** Efficient data handling techniques and using libraries like Pandas and Scikit-learn to streamline preprocessing and model training.
+
+3. **Categorical Data:**
+ - **Challenge:** Categorical features (e.g., `Gender`, `Customer Type`, `Type of Travel`, `Class`) needed to be converted into numerical format for the logistic regression model.
+ - **Solution:** Applied one-hot encoding to convert categorical variables into a format suitable for machine learning algorithms.
+
+#### Challenges in Visualising Data
+
+1. **Feature Richness:**
+ - **Challenge:** With 25 features, visualising relationships and distributions is complex.
+ - **Solution:** Utilised pair plots, correlation heatmaps, and box plots to understand the distribution and relationships between features and the target variable.
+
+2. **Imbalanced Classes:**
+ - **Challenge:** The `satisfaction` target variable might be imbalanced, affecting visualisation clarity.
+ - **Solution:** Plotted the distribution of the target variable to check for imbalance and used stratified sampling during train-test split.
+
+#### Feature Engineering Performed
+
+1. **Encoding Target Variable:**
+ - Converted the `satisfaction` column from categorical (e.g., "neutral or dissatisfied", "satisfied") to binary (0 and 1).
+
+2. **Handling Categorical Features:**
+ - Applied one-hot encoding to categorical features to convert them into numerical format.
+
+3. **Scaling Numerical Features:**
+ - Standardised numerical features to have a mean of 0 and a standard deviation of 1, which helps in improving the performance of the logistic regression model.
+
+4. **Imputing Missing Values:**
+ - Imputed missing values in the `Arrival Delay in Minutes` column with the median to ensure completeness of data without introducing bias from extreme values.
+
+
 ## Conclusion
 The overall analysis when related to the research question highlight that variables such as seat comfort, online booking, inflight entertainment etc. were the biggest contributors to satisfaction and should be used to improve the experience for customers, when measuring this data, it can be reliably used within this model to assess whether a customer is likely to be a satisfied customer, but continuous monitoring and updating of the model are necessary to adapt to changing customer preferences and ensure sustained performance. The models performance could further be improved in the future by recording/creating new features to capture underlying patterns better.
 I also think there could be confounding variables that haven't been recorded within this data but it cannot be confirmed by this dataset alone. More research is required by myself to utilise things like 
