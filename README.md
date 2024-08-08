@@ -230,7 +230,7 @@ This dataset is public and any personal identifiable information was redacted or
 
 1. **Handling Missing Values:**
  - **Challenge:** The `Arrival Delay in Minutes` column had missing values that could skew the results.
- - **Solution:** Imputed missing values with the median, which is robust against outliers compared to mean imputation.
+ - **Solution:** Imputed missing values with the mean, preventing missing values harming the results.
 
 2. **Data Volume:**
  - **Challenge:** The dataset contained over 100,000 rows and 25 columns, leading to high memory usage and longer computation times.
@@ -262,7 +262,7 @@ This dataset is public and any personal identifiable information was redacted or
  - Standardised numerical features to have a mean of 0 and a standard deviation of 1, which helps in improving the performance of the logistic regression model.
 
 4. **Imputing Missing Values:**
- - Imputed missing values in the `Arrival Delay in Minutes` column with the median to ensure completeness of data without introducing bias from extreme values.
+ - Imputed missing values in the `Arrival Delay in Minutes` column with the mean to ensure completeness of data without introducing bias from extreme values.
 
 
 ## Conclusion
