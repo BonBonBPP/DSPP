@@ -244,7 +244,7 @@ This dataset is public and any personal identifiable information was redacted or
 
 1. **Feature Richness:**
  - **Challenge:** With 25 features, visualising relationships and distributions is complex.
- - **Solution:** Utilised pair plots, correlation heatmaps, and box plots to understand the distribution and relationships between features and the target variable.
+ - **Solution:** Utilised correlation heatmaps and plotting spread against features to understand the distribution and relationships between features and the target variable.
 
 2. **Imbalanced Classes:**
  - **Challenge:** The `satisfaction` target variable might be imbalanced, affecting visualisation clarity.
